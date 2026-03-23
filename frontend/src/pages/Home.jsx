@@ -77,19 +77,19 @@ const Home = () => {
                         {specialties.map((spec) => {
                             const style = getSpecialtyStyle(spec.name);
                             return (
-                                <li key={spec.id} className="specialty-card" style={{ 
-                                    background: style.background, 
-                                    padding: '25px', 
-                                    borderRadius: '16px', 
-                                    width: '280px', 
-                                    boxShadow: '0 10px 25px rgba(0,0,0,0.3)', 
+                                <li key={spec.id} className="specialty-card" style={{
+                                    background: style.background,
+                                    padding: '25px',
+                                    borderRadius: '16px',
+                                    width: '280px',
+                                    boxShadow: '0 10px 25px rgba(0,0,0,0.3)',
                                     textAlign: 'left',
                                     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                                     cursor: 'pointer',
                                     border: '1px solid rgba(255,255,255,0.15)'
                                 }}
-                                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.4)'; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)'; }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.4)'; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)'; }}
                                 >
                                     <h3 style={{ color: style.color, marginTop: 0, fontSize: '1.4rem' }}>{spec.name}</h3>
                                     <p style={{ color: style.color, opacity: 0.9, fontSize: '1em', lineHeight: '1.5', marginTop: '10px' }}>

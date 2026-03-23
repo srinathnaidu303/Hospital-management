@@ -55,6 +55,15 @@ public class AppointmentService {
                 .collect(Collectors.toList());
     }
 
+    public List<AppointmentResponse> getDoctorAppointments(Long doctorId) {
+        if (!doctorRepository.existsById(doctorId)) {
+            throw new ResourceNotFoundException("Doctor not found");
+        }
+        return appointmentRepository.findByDoctorId(doctorId).stream()
+                .map(this::mapToDto)
+                .collect(Collectors.toList());
+    }
+
     public void deleteAppointment(Long id) {
         if (!appointmentRepository.existsById(id)) {
             throw new ResourceNotFoundException("Appointment not found");

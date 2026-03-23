@@ -57,6 +57,11 @@ export const getUserAppointments = (userId) => {
     return api.get(`/appointments/user/${userId}`);
 };
 
+// Get appointments of a doctor
+export const getDoctorAppointments = (doctorId) => {
+    return api.get(`/appointments/doctor/${doctorId}`);
+};
+
 // Cancel appointment
 export const cancelAppointment = (id) => {
     return api.delete(`/appointments/${id}`);
