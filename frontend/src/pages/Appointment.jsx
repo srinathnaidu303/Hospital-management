@@ -8,6 +8,8 @@ const Appointment = () => {
     const location = useLocation();
 
     const doctorId = location.state?.doctorId;
+    const doctorName = location.state?.doctorName;
+    const specialtyName = location.state?.specialtyName;
 
     const [appointmentDate, setAppointmentDate] = useState("");
     const [message, setMessage] = useState("");
@@ -96,12 +98,13 @@ const Appointment = () => {
 
                 <div className="form-group">
 
-                    <label>Doctor ID</label>
+                    <label>Doctor Name</label>
 
                     <input
-                        type="number"
-                        value={doctorId || ""}
+                        type="text"
+                        value={doctorName ? `Dr. ${doctorName} (${specialtyName})` : `ID: ${doctorId || ""}`}
                         readOnly
+                        style={{ color: '#555', backgroundColor: '#f9f9f9' }}
                     />
 
                 </div>

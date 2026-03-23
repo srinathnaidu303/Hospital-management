@@ -15,8 +15,14 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await registerUser(user);
-            navigate('/login');
+            const response = await registerUser(user);
+            if (response.data && response.data.id) {
+                localStorage.setItem('user', JSON.stringify(response.data));
+                window.dispatchEvent(new Event('auth-change'));
+                navigate('/');
+            } else {
+                navigate('/login');
+            }
         } catch (err) {
             setError(err.response?.data?.message || 'Registration failed');
         }

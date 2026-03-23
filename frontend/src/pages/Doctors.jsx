@@ -93,7 +93,14 @@ const Doctors = () => {
 
         }
 
-        navigate("/book-appointment", { state: { doctorId } });
+        const selectedDoctor = doctors.find(d => d.id === doctorId);
+        navigate("/book-appointment", { 
+            state: { 
+                doctorId, 
+                doctorName: selectedDoctor?.name,
+                specialtyName: selectedDoctor?.specialtyName
+            } 
+        });
 
     };
 

@@ -17,6 +17,7 @@ const Login = () => {
         try {
             const response = await loginUser(credentials);
             localStorage.setItem('user', JSON.stringify(response.data));
+            window.dispatchEvent(new Event('auth-change'));
             navigate('/');
         } catch (err) {
             setError(err.response?.data?.message || 'Login failed');
