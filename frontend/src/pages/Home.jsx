@@ -55,34 +55,44 @@ const Home = () => {
     };
 
     return (
-        <div className="page-container">
-            <h1>Welcome to Hospital Management System</h1>
-            <p style={{ fontSize: '1.2rem', color: '#555' }}>Your health is our priority.</p>
+        <div className="page-container" style={{
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("/hospital-bg.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            minHeight: '100vh',
+            padding: '80px 20px',
+            color: '#f0f0f0',
+            textAlign: 'center'
+        }}>
+            <h1 style={{ color: '#ffffff', fontSize: '3rem', textShadow: '2px 2px 4px rgba(0,0,0,0.6)', margin: '0 0 15px 0' }}>Welcome to Hospital Management System</h1>
+            <p style={{ fontSize: '1.4rem', color: '#dddddd', marginBottom: '60px', fontWeight: '300' }}>Your health is our priority.</p>
 
-            <div className="specialties-section" style={{ marginTop: '40px' }}>
-                <h2>Our Specialties</h2>
+            <div className="specialties-section" style={{ marginTop: '20px' }}>
+                <h2 style={{ color: '#ffffff', fontSize: '2.5rem', borderBottom: '2px solid rgba(255,255,255,0.2)', paddingBottom: '10px', display: 'inline-block', marginBottom: '30px' }}>Our Specialties</h2>
                 {specialties.length === 0 ? (
-                    <p>No specialties available at the moment.</p>
+                    <p style={{ color: '#ccc' }}>No specialties available at the moment.</p>
                 ) : (
-                    <ul className="specialty-list" style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', listStyle: 'none', padding: 0, justifyContent: 'center', marginTop: '20px' }}>
+                    <ul className="specialty-list" style={{ display: 'flex', gap: '25px', flexWrap: 'wrap', listStyle: 'none', padding: 0, justifyContent: 'center', marginTop: '20px' }}>
                         {specialties.map((spec) => {
                             const style = getSpecialtyStyle(spec.name);
                             return (
                                 <li key={spec.id} className="specialty-card" style={{ 
                                     background: style.background, 
-                                    padding: '20px', 
-                                    borderRadius: '12px', 
-                                    width: '250px', 
-                                    boxShadow: '0 8px 15px rgba(0,0,0,0.1)', 
+                                    padding: '25px', 
+                                    borderRadius: '16px', 
+                                    width: '280px', 
+                                    boxShadow: '0 10px 25px rgba(0,0,0,0.3)', 
                                     textAlign: 'left',
                                     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    border: '1px solid rgba(255,255,255,0.15)'
                                 }}
-                                onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.boxShadow = '0 12px 20px rgba(0,0,0,0.15)'; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 8px 15px rgba(0,0,0,0.1)'; }}
+                                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.4)'; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)'; }}
                                 >
-                                    <h3 style={{ color: style.color, marginTop: 0 }}>{spec.name}</h3>
-                                    <p style={{ color: style.color, opacity: 0.9, fontSize: '0.95em', lineHeight: '1.4' }}>
+                                    <h3 style={{ color: style.color, marginTop: 0, fontSize: '1.4rem' }}>{spec.name}</h3>
+                                    <p style={{ color: style.color, opacity: 0.9, fontSize: '1em', lineHeight: '1.5', marginTop: '10px' }}>
                                         {spec.description || getSpecialtyDescription(spec.name)}
                                     </p>
                                 </li>
