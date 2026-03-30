@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Profile;
 
 import java.util.List;
 
-@Configuration
-@Profile("dev") // ✅ runs ONLY in dev (local), NOT in Railway
+// @Configuration
+// @Profile("dev") // ✅ runs ONLY in dev (local), NOT in Railway
 public class DataSeeder implements CommandLineRunner {
 
     private final SpecialtyRepository specialtyRepository;

@@ -3,12 +3,12 @@ package com.hms.service;
 import com.hms.dto.SpecialtyDto;
 import com.hms.entity.Specialty;
 import com.hms.repository.SpecialtyRepository;
-import org.springframework.stereotype.Service;
+// import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+// @Service   ❌ DISABLED to prevent crash
 public class SpecialtyService {
 
     private final SpecialtyRepository specialtyRepository;
